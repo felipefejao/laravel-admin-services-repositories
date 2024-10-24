@@ -21,3 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/telegram/webhook', [\App\Services\TelegramBotService\TelegramBotService::class, 'handleWebhook']);
+
+Route::post('/mercadopago/webhook', [\App\Http\Controllers\WebhookController::class, 'mercadoPagoWebhook']);
